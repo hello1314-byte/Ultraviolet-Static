@@ -24,3 +24,23 @@ Here's how to get the remaining scripts for the purpose of hosting this reposito
 
    Do not copy `uv.config.js` from the archive!
 
+
+   ## Deploying with GitHub Pages (automatic)
+
+   A GitHub Actions workflow has been added to automatically publish the contents of the `public/` directory to GitHub Pages whenever you push to the `main` branch.
+
+   - How it works: the workflow uploads `public/` as a Pages artifact and deploys it using the official Pages deployment action.
+   - No extra secrets are required — the workflow uses the repository `GITHUB_TOKEN`.
+
+   If you prefer the older `gh-pages` branch approach, or want to publish from a `docs/` folder instead, I can add that alternative.
+
+   Quick checks after pushing:
+
+   1. Go to your repository Settings → Pages and verify the site source is set (the action will configure Pages automatically in most cases).
+   2. If the Pages URL doesn't appear immediately, GitHub may take a minute to provision the site.
+
+   Troubleshooting:
+
+   - Ensure `public/index.html` exists and required runtime scripts have been added to `public/uv/` as described earlier in this README.
+   - If the site doesn't update after a push, check the Actions tab for the `Deploy static site to GitHub Pages` run logs.
+
